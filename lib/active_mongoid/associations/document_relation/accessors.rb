@@ -40,17 +40,17 @@ module ActiveMongoid
 
         module ClassMethods
 
-          private
-
           def existence_check(name)
             module_eval <<-END
-              def #{name}?
-                !__send__(:#{name}).blank?
-              end
-              alias :has_#{name}? :#{name}?
+            def #{name}?
+              !__send__(:#{name}).blank?
+            end
+            alias :has_#{name}? :#{name}?
             END
             self
           end
+
+          private
 
           # Getters
 
